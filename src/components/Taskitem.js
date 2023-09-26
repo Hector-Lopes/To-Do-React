@@ -1,19 +1,10 @@
 import ButtonItem from "./Buttom";
-import { useEffect } from "react";
 const TaskItem = ({ task }) => {
-  useEffect(() => {
-    console.log("component was monted");
-
-    return () => {
-      console.log("removido");
-    };
-  }, []);
-
   return (
     <>
-      <h1>{task.descricao}</h1>
+      <h1>{task.description}</h1>
       <p>{task.isCompleted ? "Completa" : "Não completa"}</p>
-      <ButtonItem descricao={task.descricao} />
+      <ButtonItem descricao={task.description} />
     </>
   );
 };

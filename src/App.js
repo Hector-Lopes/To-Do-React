@@ -1,17 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import TaskItem from "./components/Taskitem";
 
 const App = () => {
-  const montado = useRef(false);
-
-  useEffect(() => {
-    if (montado.current == false) {
-      montado.current = true;
-    } else {
-      console.log("componente att");
-    }
-  });
-
   const [TaskS, SetTaskS] = useState([
     {
       id: "1",
@@ -25,15 +17,26 @@ const App = () => {
     },
   ]);
 
-  const handleclearTask = () => {
-    SetTaskS([]);
+  const fetchTasks = async () => {
+    try {
+      const { data } = await axios.get(
+        await "https://fsc-task-manager-backend.herokuapp.com/tasks"
+      );
+      SetTaskS(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
   return (
     <>
       {TaskS.map((task) => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem task={task} />
       ))}
-      <button onClick={handleclearTask}>REMOVER</button>
     </>
   );
 };
