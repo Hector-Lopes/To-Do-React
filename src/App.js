@@ -1,7 +1,17 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import TaskItem from "./components/Taskitem";
 
 const App = () => {
+  const montado = useRef(false);
+
+  useEffect(() => {
+    if (montado.current == false) {
+      montado.current = true;
+    } else {
+      console.log("componente att");
+    }
+  });
+
   const [TaskS, SetTaskS] = useState([
     {
       id: "1",
@@ -15,11 +25,15 @@ const App = () => {
     },
   ]);
 
+  const handleclearTask = () => {
+    SetTaskS([]);
+  };
   return (
     <>
       {TaskS.map((task) => (
         <TaskItem key={task.id} task={task} />
       ))}
+      <button onClick={handleclearTask}>REMOVER</button>
     </>
   );
 };
