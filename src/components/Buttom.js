@@ -1,7 +1,7 @@
-const ButtonItem = ({ descricao }) => {
+const ButtonItem = ({ descricao, handdletaskdelete }) => {
   return (
     <>
-      <button>botão {descricao}</button>
+      <button onClick={handdletaskdelete}>botão {descricao}</button>
     </>
   );
 };
