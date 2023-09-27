@@ -1,0 +1,32 @@
+.Tasks-Container{
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+max-width: 40%;
+padding-top: 50px ;
+height: 100vh;
+h2{
+    font-size: 18px;
+margin-bottom:18px ;
+}
+
+.Last-Tasks{
+
+    flex: 1;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.Completed-Tasks{
+flex: 1;
+padding-top: 20px;
+
+.Tasks-list{
+
+    padding: 28px;
+}
+}
+
+}
+
