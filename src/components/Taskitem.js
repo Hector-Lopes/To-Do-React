@@ -4,7 +4,7 @@ const TaskItem = ({ task }) => {
     <>
       <h1>{task.description}</h1>
       <p>{task.isCompleted ? "Completa" : "Não completa"}</p>
-      <ButtonItem descricao={task.description} />
+      {/* <ButtonItem descricao={task.description} /> */}
     </>
   );
 };
