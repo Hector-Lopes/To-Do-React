@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./Tasks.scss";
+
 import "./button";
-import Button from "./button";
+
+import TaskItem from "./Taskitem";
 
 const Tasks = () => {
   const [TaskS, SetTaskS] = useState([]);
@@ -39,19 +41,21 @@ const Tasks = () => {
       <input></input>
       <div className="Last-Tasks">
         <h3>Ultimas Tarefas</h3>
-        <div className="Tasks-list"></div>
-        {TaskS.filter((Task) => Task.isCompleted == false).map((lastTask) => (
-          <p>{lastTask.description}</p>
-        ))}
+        <div className="Tasks-list">
+          {TaskS.filter((Task) => Task.isCompleted == false).map((lastTask) => (
+            <TaskItem task={lastTask} />
+          ))}
+        </div>
       </div>
       <div className="Completed-Tasks">
-        <h3>Tarefas Concluidas</h3>
-        {TaskS.filter((task) => task.isCompleted == true).map(
-          (completetask) => (
-            <p>{completetask.description}</p>
-          )
-        )}
-        <div className="Tasks-list"></div>
+        <div className="Tasks-list">
+          <h3>Tarefas Concluidas</h3>
+          {TaskS.filter((task) => task.isCompleted == true).map(
+            (completetask) => (
+              <TaskItem task={completetask} />
+            )
+          )}
+        </div>
       </div>
     </div>
   );

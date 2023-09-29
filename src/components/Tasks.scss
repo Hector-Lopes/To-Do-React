@@ -11,7 +11,7 @@ margin-bottom:18px ;
 }
 
 .Last-Tasks{
-
+    padding-top: 20px;
     flex: 1;
     overflow-y: hidden;
     display: flex;
@@ -23,10 +23,15 @@ flex: 1;
 padding-top: 20px;
 
 .Tasks-list{
-
-    padding: 28px;
+    padding-top: 20px;
+    flex: 1;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
 }
 }
-
+p{
+    padding-top: 10px;
+}
 }
 
