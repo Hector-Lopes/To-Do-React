@@ -25,22 +25,13 @@ const Tasks = () => {
     fetchTasks();
   }, []);
 
-  //   const upadteTask = async () => {
-  //     try {
-  //       const { data } = await axios.post(
-  //         await "https://fsc-task-manager-backend.herokuapp.com/tasks"
-  //       );
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
   return (
     <div className="Tasks-Container">
       <h2>Minhas Tarefas</h2>
-      <input></input>
+
       <div className="Last-Tasks">
         <h3>Ultimas Tarefas</h3>
+        <ADD />
         <div className="Tasks-list">
           {TaskS.filter((Task) => Task.isCompleted === false).map(
             (lastTask) => (
