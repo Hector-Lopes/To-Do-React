@@ -3,9 +3,9 @@ import axios from "axios";
 
 import "./Tasks.scss";
 
-import "../button/button";
-
+import Button from "../button/button";
 import TaskItem from "../Taskitems/Taskitem";
+import ADD from "../menu_add/add";
 
 const Tasks = () => {
   const [TaskS, SetTaskS] = useState([]);
