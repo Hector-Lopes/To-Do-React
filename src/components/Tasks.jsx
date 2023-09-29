@@ -25,15 +25,15 @@ const Tasks = () => {
     fetchTasks();
   }, []);
 
-  const upadteTask = async () => {
-    try {
-      const { data } = await axios.post(
-        await "https://fsc-task-manager-backend.herokuapp.com/tasks"
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   const upadteTask = async () => {
+  //     try {
+  //       const { data } = await axios.post(
+  //         await "https://fsc-task-manager-backend.herokuapp.com/tasks"
+  //       );
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
   return (
     <div className="Tasks-Container">
@@ -42,15 +42,17 @@ const Tasks = () => {
       <div className="Last-Tasks">
         <h3>Ultimas Tarefas</h3>
         <div className="Tasks-list">
-          {TaskS.filter((Task) => Task.isCompleted == false).map((lastTask) => (
-            <TaskItem task={lastTask} />
-          ))}
+          {TaskS.filter((Task) => Task.isCompleted === false).map(
+            (lastTask) => (
+              <TaskItem task={lastTask} />
+            )
+          )}
         </div>
       </div>
       <div className="Completed-Tasks">
         <div className="Tasks-list">
           <h3>Tarefas Concluidas</h3>
-          {TaskS.filter((task) => task.isCompleted == true).map(
+          {TaskS.filter((task) => task.isCompleted === true).map(
             (completetask) => (
               <TaskItem task={completetask} />
             )
