@@ -1,3 +1,5 @@
+import "./add.scss";
+
 import { useState } from "react";
 
 import Button from "../button/button";
@@ -13,6 +15,7 @@ const ADD = () => {
     <>
       <div className="add-task-container">
         <Input label="Adicionar tarefa" value={task} onchange={onchange} />
+        <Button />
       </div>
     </>
   );
