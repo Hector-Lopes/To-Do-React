@@ -3,41 +3,44 @@ import { FaPlus } from "react-icons/fa";
 import "./add.scss";
 
 import { useState } from "react";
-import { axios } from "axios";
+import axios from "axios";
 import { useAlert } from "react-alert";
 
 import Button from "../button/button";
 import Input from "../Input/input";
 
-const ADD = () => {
+const ADD = ({ fetchTasks }) => {
   const [task, SetTask] = useState("");
 
   const alert = useAlert();
 
-  const onchange = (e) => {
+  const onChangee = (e) => {
     SetTask(e.target.value);
   };
 
   const HandleTaskAddition = async () => {
     try {
-      if (task.length == 0) {
+      if (task.length === 0) {
         return alert.error("A Tarefa precisa de uma descrição");
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+      await axios.post("https://fsc-task-manager-backend.herokuapp.com/tasks", {
+        description: task,
+        isCompleted: false,
+      });
 
-  const onClick = () => {
-    HandleTaskAddition();
+      // await fetchTasks();
+      SetTask("");
+    } catch (error) {
+      alert.error("Algo deu errado");
+    }
   };
 
   return (
     <>
       <div className="add-task-container">
-        <Input label="Adicionar tarefa" value={task} onchange={onchange} />
-        <Button onClick={onClick}>
-          <FaPlus />
+        <Input label="Adicionar tarefa" value={task} onChange={onChangee} />
+        <Button onClick={HandleTaskAddition}>
+          <FaPlus>color="#ffff"</FaPlus>
         </Button>
       </div>
     </>
