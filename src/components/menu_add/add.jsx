@@ -28,8 +28,9 @@ const ADD = ({ fetchTasks }) => {
         isCompleted: false,
       });
 
-      // await fetchTasks();
+      await fetchTasks();
       SetTask("");
+      await alert.success("A Tarefa foi adicionada com sucesso!");
     } catch (error) {
       alert.error("Algo deu errado");
     }
