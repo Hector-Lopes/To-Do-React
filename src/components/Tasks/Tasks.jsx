@@ -15,10 +15,7 @@ const Tasks = () => {
         await "https://fsc-task-manager-backend.herokuapp.com/tasks"
       );
       SetTaskS(data);
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     fetchTasks();
