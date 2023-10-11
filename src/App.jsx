@@ -1,9 +1,14 @@
 import Tasks from "./components/Tasks/Tasks";
+import Sidebar from "./components/Sidebar/sidebar";
 
+import "./App.scss";
 const App = () => {
   return (
     <>
-      <Tasks />
+      <div className="app-container">
+        <Sidebar />
+        <Tasks />
+      </div>
     </>
   );
 };

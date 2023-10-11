@@ -1,7 +1,8 @@
+$backgorund-color: linear-gradient(259.93deg,#000000 -41.68%, #00171f 146.85%);
 .sidebar-container {
     max-width: 181px;
     height: 100vh;
-    background: #111;
+    background: $backgorund-color;
     padding: 56px 28px;
     position: relative;
 
