@@ -20,7 +20,7 @@ const Tasks = () => {
 
 	useEffect(() => {
 		fetchTasks();
-	}, []);
+	}, [fetchTasks]);
 
 	return (
 		<>
