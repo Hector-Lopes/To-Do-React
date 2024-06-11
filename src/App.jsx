@@ -7,10 +7,10 @@ const App = () => {
 	return (
 		<Routes>
 			<Route
-				path='/'
+				path='/:name'
 				element={<Home />}></Route>
 			<Route
-				path='/login'
+				path='/'
 				element={<Login />}></Route>
 		</Routes>
 	);

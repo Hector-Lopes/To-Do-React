@@ -9,7 +9,7 @@ const Sidebar = () => {
 	const navigate = useNavigate();
 
 	const HandleClickinNavigate = () => {
-		navigate("/login");
+		navigate("/");
 	};
 
 	return (

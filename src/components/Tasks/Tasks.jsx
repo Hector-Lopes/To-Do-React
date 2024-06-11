@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import "./Tasks.scss";
@@ -9,14 +9,15 @@ import ADD from "../menu_add/add";
 const Tasks = () => {
 	const [TaskS, SetTaskS] = useState([]);
 
-	const fetchTasks = async () => {
+	const fetchTasks = useCallback(async () => {
 		try {
 			const { data } = await axios.get(
 				await "https://fsc-task-manager-backend.herokuapp.com/tasks",
 			);
 			SetTaskS(data);
 		} catch (_error) {}
-	};
+	}, []);
+
 	useEffect(() => {
 		fetchTasks();
 	}, []);
